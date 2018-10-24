@@ -1,37 +1,37 @@
 * [WTIndex](#wtindex)
-  * [getHotels](#function-gethotels)
-  * [callHotel](#function-callhotel)
-  * [hotelsByManagerIndex](#function-hotelsbymanagerindex)
-  * [transferHotel](#function-transferhotel)
+  * [getAirlines](#function-getairlines)
+  * [callAirline](#function-callairline)
+  * [airlinesByManagerIndex](#function-airlinesbymanagerindex)
+  * [transferAirline](#function-transferairline)
   * [version](#function-version)
   * [LifToken](#function-liftoken)
   * [renounceOwnership](#function-renounceownership)
-  * [hotelsByManager](#function-hotelsbymanager)
+  * [airlinesByManager](#function-airlinesbymanager)
   * [owner](#function-owner)
-  * [hotelsIndex](#function-hotelsindex)
-  * [getHotelsByManager](#function-gethotelsbymanager)
-  * [getHotelsLength](#function-gethotelslength)
+  * [airlinesIndex](#function-airlinesindex)
+  * [getAirlinesByManager](#function-getairlinesbymanager)
+  * [getAirlinesLength](#function-getairlineslength)
   * [contractType](#function-contracttype)
-  * [hotels](#function-hotels)
+  * [airlines](#function-airlines)
   * [setLifToken](#function-setliftoken)
   * [transferOwnership](#function-transferownership)
-  * [registerHotel](#function-registerhotel)
-  * [deleteHotel](#function-deletehotel)
-  * [HotelRegistered](#event-hotelregistered)
-  * [HotelDeleted](#event-hoteldeleted)
-  * [HotelCalled](#event-hotelcalled)
-  * [HotelTransferred](#event-hoteltransferred)
+  * [registerAirline](#function-registerairline)
+  * [deleteAirline](#function-deleteairline)
+  * [AirlineRegistered](#event-airlineregistered)
+  * [AirlineDeleted](#event-airlinedeleted)
+  * [AirlineCalled](#event-airlinecalled)
+  * [AirlineTransferred](#event-airlinetransferred)
   * [OwnershipRenounced](#event-ownershiprenounced)
   * [OwnershipTransferred](#event-ownershiptransferred)
 
 # WTIndex
 
 
-## *function* getHotels
+## *function* getAirlines
 
-WTIndex.getHotels() `view` `0d2e677a`
+WTIndex.getAirlines() `view` `0d2e677a`
 
-> `getHotels` get `hotels` array
+> `getAirlines` get `airlines` array
 
 
 
@@ -41,23 +41,23 @@ Outputs
 |-|-|-|
 | *address[]* |  | undefined |
 
-## *function* callHotel
+## *function* callAirline
 
-WTIndex.callHotel(hotel, data) `nonpayable` `154d56db`
+WTIndex.callAirline(airline, data) `nonpayable` `154d56db`
 
-> `callHotel` Call hotel in the index, the hotel can only be called by its manager. Effectively proxies a hotel call. Emits HotelCalled on success.
+> `callAirline` Call airline in the index, the airline can only be called by its manager. Effectively proxies a airline call. Emits AirlineCalled on success.
 
 Inputs
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | Hotel's address |
-| *bytes* | data | Encoded method call to be done on Hotel contract. |
+| *address* | airline | Airline's address |
+| *bytes* | data | Encoded method call to be done on Airline contract. |
 
 
-## *function* hotelsByManagerIndex
+## *function* airlinesByManagerIndex
 
-WTIndex.hotelsByManagerIndex() `view` `189f6aef`
+WTIndex.airlinesByManagerIndex() `view` `189f6aef`
 
 
 Inputs
@@ -67,18 +67,18 @@ Inputs
 | *address* |  | undefined |
 
 
-## *function* transferHotel
+## *function* transferAirline
 
-WTIndex.transferHotel(hotel, newManager) `nonpayable` `292d64e0`
+WTIndex.transferAirline(airline, newManager) `nonpayable` `292d64e0`
 
-> `transferHotel` Allows to change ownership of the hotel contract. Emits HotelTransferred on success.
+> `transferAirline` Allows to change ownership of the airline contract. Emits AirlineTransferred on success.
 
 Inputs
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | Hotel's address |
-| *address* | newManager | Address to which the hotel will belong after transfer. |
+| *address* | airline | Airline's address |
+| *address* | newManager | Address to which the airline will belong after transfer. |
 
 
 ## *function* version
@@ -108,9 +108,9 @@ WTIndex.renounceOwnership() `nonpayable` `715018a6`
 
 
 
-## *function* hotelsByManager
+## *function* airlinesByManager
 
-WTIndex.hotelsByManager(, ) `view` `7cf2dfae`
+WTIndex.airlinesByManager(, ) `view` `7cf2dfae`
 
 
 Inputs
@@ -129,9 +129,9 @@ WTIndex.owner() `view` `8da5cb5b`
 
 
 
-## *function* hotelsIndex
+## *function* airlinesIndex
 
-WTIndex.hotelsIndex() `view` `9f9bfeb8`
+WTIndex.airlinesIndex() `view` `9f9bfeb8`
 
 
 Inputs
@@ -141,11 +141,11 @@ Inputs
 | *address* |  | undefined |
 
 
-## *function* getHotelsByManager
+## *function* getAirlinesByManager
 
-WTIndex.getHotelsByManager(manager) `view` `bb979c3d`
+WTIndex.getAirlinesByManager(manager) `view` `bb979c3d`
 
-> `getHotelsByManager` get all the hotels belonging to one manager
+> `getAirlinesByManager` get all the airlines belonging to one manager
 
 Inputs
 
@@ -159,11 +159,11 @@ Outputs
 |-|-|-|
 | *address[]* |  | undefined |
 
-## *function* getHotelsLength
+## *function* getAirlinesLength
 
-WTIndex.getHotelsLength() `view` `ca63a55b`
+WTIndex.getAirlinesLength() `view` `ca63a55b`
 
-> `getHotelsLength` get the length of the `hotels` array
+> `getAirlinesLength` get the length of the `airlines` array
 
 
 
@@ -181,9 +181,9 @@ WTIndex.contractType() `view` `cb2ef6f7`
 
 
 
-## *function* hotels
+## *function* airlines
 
-WTIndex.hotels() `view` `cd338265`
+WTIndex.airlines() `view` `cd338265`
 
 
 Inputs
@@ -219,75 +219,75 @@ Inputs
 | *address* | _newOwner | The address to transfer ownership to. |
 
 
-## *function* registerHotel
+## *function* registerAirline
 
-WTIndex.registerHotel(dataUri) `nonpayable` `f88a067f`
+WTIndex.registerAirline(dataUri) `nonpayable` `f88a067f`
 
-> `registerHotel` Register new hotel in the index. Emits `HotelRegistered` on success.
-
-Inputs
-
-| **type** | **name** | **description** |
-|-|-|-|
-| *string* | dataUri | Hotel's data pointer |
-
-
-## *function* deleteHotel
-
-WTIndex.deleteHotel(hotel) `nonpayable` `fb6f6875`
-
-> `deleteHotel` Allows a manager to delete a hotel, i. e. call destroy on the target Hotel contract. Emits `HotelDeleted` on success.
+> `registerAirline` Register new airline in the index. Emits `AirlineRegistered` on success.
 
 Inputs
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | Hotel's address |
+| *string* | dataUri | Airline's data pointer |
 
 
-## *event* HotelRegistered
+## *function* deleteAirline
 
-WTIndex.HotelRegistered(hotel, managerIndex, allIndex) `48ef5bfc`
+WTIndex.deleteAirline(airline) `nonpayable` `fb6f6875`
+
+> `deleteAirline` Allows a manager to delete a airline, i. e. call destroy on the target Airline contract. Emits `AirlineDeleted` on success.
+
+Inputs
+
+| **type** | **name** | **description** |
+|-|-|-|
+| *address* | airline | Airline's address |
+
+
+## *event* AirlineRegistered
+
+WTIndex.AirlineRegistered(airline, managerIndex, allIndex) `48ef5bfc`
 
 Arguments
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | not indexed |
+| *address* | airline | not indexed |
 | *uint256* | managerIndex | not indexed |
 | *uint256* | allIndex | not indexed |
 
-## *event* HotelDeleted
+## *event* AirlineDeleted
 
-WTIndex.HotelDeleted(hotel, managerIndex, allIndex) `54f58abd`
+WTIndex.AirlineDeleted(airline, managerIndex, allIndex) `54f58abd`
 
 Arguments
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | not indexed |
+| *address* | airline | not indexed |
 | *uint256* | managerIndex | not indexed |
 | *uint256* | allIndex | not indexed |
 
-## *event* HotelCalled
+## *event* AirlineCalled
 
-WTIndex.HotelCalled(hotel) `e09d7761`
-
-Arguments
-
-| **type** | **name** | **description** |
-|-|-|-|
-| *address* | hotel | not indexed |
-
-## *event* HotelTransferred
-
-WTIndex.HotelTransferred(hotel, previousManager, newManager) `04dd8111`
+WTIndex.AirlineCalled(airline) `e09d7761`
 
 Arguments
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | not indexed |
+| *address* | airline | not indexed |
+
+## *event* AirlineTransferred
+
+WTIndex.AirlineTransferred(airline, previousManager, newManager) `04dd8111`
+
+Arguments
+
+| **type** | **name** | **description** |
+|-|-|-|
+| *address* | airline | not indexed |
 | *address* | previousManager | not indexed |
 | *address* | newManager | not indexed |
 

@@ -1,4 +1,4 @@
-* [Hotel](#hotel)
+* [Airline](#airline)
   * [index](#function-index)
   * [created](#function-created)
   * [manager](#function-manager)
@@ -9,12 +9,12 @@
   * [changeManager](#function-changemanager)
   * [contractType](#function-contracttype)
 
-# Hotel
+# Airline
 
 
 ## *function* index
 
-Hotel.index() `view` `2986c0e5`
+Airline.index() `view` `2986c0e5`
 
 
 
@@ -22,7 +22,7 @@ Hotel.index() `view` `2986c0e5`
 
 ## *function* created
 
-Hotel.created() `view` `325a19f1`
+Airline.created() `view` `325a19f1`
 
 
 
@@ -30,7 +30,7 @@ Hotel.created() `view` `325a19f1`
 
 ## *function* manager
 
-Hotel.manager() `view` `481c6a75`
+Airline.manager() `view` `481c6a75`
 
 
 
@@ -38,7 +38,7 @@ Hotel.manager() `view` `481c6a75`
 
 ## *function* version
 
-Hotel.version() `view` `54fd4d50`
+Airline.version() `view` `54fd4d50`
 
 
 
@@ -46,16 +46,16 @@ Hotel.version() `view` `54fd4d50`
 
 ## *function* destroy
 
-Hotel.destroy() `nonpayable` `83197ef0`
+Airline.destroy() `nonpayable` `83197ef0`
 
-> `destroy` allows the owner to delete the Hotel
+> `destroy` allows the owner to delete the Airline
 
 
 
 
 ## *function* dataUri
 
-Hotel.dataUri() `view` `8a9b29eb`
+Airline.dataUri() `view` `8a9b29eb`
 
 
 
@@ -63,22 +63,22 @@ Hotel.dataUri() `view` `8a9b29eb`
 
 ## *function* editInfo
 
-Hotel.editInfo(_dataUri) `nonpayable` `9d9b5342`
+Airline.editInfo(_dataUri) `nonpayable` `9d9b5342`
 
-> `editInfo` Allows owner to change hotel's dataUri.
+> `editInfo` Allows owner to change airline's dataUri.
 
 Inputs
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *string* | _dataUri | New dataUri pointer of this hotel |
+| *string* | _dataUri | New dataUri pointer of this airline |
 
 
 ## *function* changeManager
 
-Hotel.changeManager(_newManager) `nonpayable` `a3fbbaae`
+Airline.changeManager(_newManager) `nonpayable` `a3fbbaae`
 
-> Allows owner to change hotel manager.
+> Allows owner to change airline manager.
 
 Inputs
 
@@ -89,7 +89,7 @@ Inputs
 
 ## *function* contractType
 
-Hotel.contractType() `view` `cb2ef6f7`
+Airline.contractType() `view` `cb2ef6f7`
 
 
 

@@ -33,7 +33,7 @@ contract AbstractAirline is AbstractBaseContract {
 
     /**
      * @dev `editInfo` Allows owner to change airline's dataUri.
-     * @param  _dataUri New dataUri pointer of this hotel
+     * @param  _dataUri New dataUri pointer of this airline
      */
     function editInfo(string _dataUri) public onlyFromIndex {
         _editInfoImpl(_dataUri);
@@ -47,7 +47,7 @@ contract AbstractAirline is AbstractBaseContract {
     }
 
     /**
-     * @dev Allows owner to change hotel manager.
+     * @dev Allows owner to change airline manager.
      * @param _newManager New manager's address
      */
     function changeManager(address _newManager) public onlyFromIndex {

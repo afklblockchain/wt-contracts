@@ -1,4 +1,4 @@
-* [AbstractHotel](#abstracthotel)
+* [AbstractAirline](#abstractairline)
   * [index](#function-index)
   * [created](#function-created)
   * [manager](#function-manager)
@@ -9,12 +9,12 @@
   * [changeManager](#function-changemanager)
   * [contractType](#function-contracttype)
 
-# AbstractHotel
+# AbstractAirline
 
 
 ## *function* index
 
-AbstractHotel.index() `view` `2986c0e5`
+AbstractAirline.index() `view` `2986c0e5`
 
 
 
@@ -22,7 +22,7 @@ AbstractHotel.index() `view` `2986c0e5`
 
 ## *function* created
 
-AbstractHotel.created() `view` `325a19f1`
+AbstractAirline.created() `view` `325a19f1`
 
 
 
@@ -30,7 +30,7 @@ AbstractHotel.created() `view` `325a19f1`
 
 ## *function* manager
 
-AbstractHotel.manager() `view` `481c6a75`
+AbstractAirline.manager() `view` `481c6a75`
 
 
 
@@ -38,7 +38,7 @@ AbstractHotel.manager() `view` `481c6a75`
 
 ## *function* version
 
-AbstractHotel.version() `view` `54fd4d50`
+AbstractAirline.version() `view` `54fd4d50`
 
 
 
@@ -46,16 +46,16 @@ AbstractHotel.version() `view` `54fd4d50`
 
 ## *function* destroy
 
-AbstractHotel.destroy() `nonpayable` `83197ef0`
+AbstractAirline.destroy() `nonpayable` `83197ef0`
 
-> `destroy` allows the owner to delete the Hotel
+> `destroy` allows the owner to delete the Airline
 
 
 
 
 ## *function* dataUri
 
-AbstractHotel.dataUri() `view` `8a9b29eb`
+AbstractAirline.dataUri() `view` `8a9b29eb`
 
 
 
@@ -63,22 +63,22 @@ AbstractHotel.dataUri() `view` `8a9b29eb`
 
 ## *function* editInfo
 
-AbstractHotel.editInfo(_dataUri) `nonpayable` `9d9b5342`
+AbstractAirline.editInfo(_dataUri) `nonpayable` `9d9b5342`
 
-> `editInfo` Allows owner to change hotel's dataUri.
+> `editInfo` Allows owner to change airline's dataUri.
 
 Inputs
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *string* | _dataUri | New dataUri pointer of this hotel |
+| *string* | _dataUri | New dataUri pointer of this airline |
 
 
 ## *function* changeManager
 
-AbstractHotel.changeManager(_newManager) `nonpayable` `a3fbbaae`
+AbstractAirline.changeManager(_newManager) `nonpayable` `a3fbbaae`
 
-> Allows owner to change hotel manager.
+> Allows owner to change airline manager.
 
 Inputs
 
@@ -89,7 +89,7 @@ Inputs
 
 ## *function* contractType
 
-AbstractHotel.contractType() `view` `cb2ef6f7`
+AbstractAirline.contractType() `view` `cb2ef6f7`
 
 
 

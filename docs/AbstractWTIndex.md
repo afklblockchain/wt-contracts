@@ -1,55 +1,55 @@
 * [AbstractWTIndex](#abstractwtindex)
-  * [getHotels](#function-gethotels)
-  * [callHotel](#function-callhotel)
-  * [hotelsByManagerIndex](#function-hotelsbymanagerindex)
-  * [transferHotel](#function-transferhotel)
+  * [getAirlines](#function-getairlines)
+  * [callAirline](#function-callairline)
+  * [airlinesByManagerIndex](#function-airlinesbymanagerindex)
+  * [transferAirline](#function-transferairline)
   * [version](#function-version)
   * [LifToken](#function-liftoken)
   * [renounceOwnership](#function-renounceownership)
-  * [hotelsByManager](#function-hotelsbymanager)
+  * [airlinesByManager](#function-airlinesbymanager)
   * [owner](#function-owner)
-  * [hotelsIndex](#function-hotelsindex)
-  * [getHotelsByManager](#function-gethotelsbymanager)
-  * [getHotelsLength](#function-gethotelslength)
+  * [airlinesIndex](#function-airlinesindex)
+  * [getAirlinesByManager](#function-getairlinesbymanager)
+  * [getAirlinesLength](#function-getairlineslength)
   * [contractType](#function-contracttype)
-  * [hotels](#function-hotels)
+  * [airlines](#function-airlines)
   * [transferOwnership](#function-transferownership)
-  * [registerHotel](#function-registerhotel)
-  * [deleteHotel](#function-deletehotel)
-  * [HotelRegistered](#event-hotelregistered)
-  * [HotelDeleted](#event-hoteldeleted)
-  * [HotelCalled](#event-hotelcalled)
-  * [HotelTransferred](#event-hoteltransferred)
+  * [registerAirline](#function-registerairline)
+  * [deleteAirline](#function-deleteairline)
+  * [AirlineRegistered](#event-airlineregistered)
+  * [AirlineDeleted](#event-airlinedeleted)
+  * [AirlineCalled](#event-airlinecalled)
+  * [AirlineTransferred](#event-airlinetransferred)
   * [OwnershipRenounced](#event-ownershiprenounced)
   * [OwnershipTransferred](#event-ownershiptransferred)
 
 # AbstractWTIndex
 
 
-## *function* getHotels
+## *function* getAirlines
 
-AbstractWTIndex.getHotels() `view` `0d2e677a`
-
-
+AbstractWTIndex.getAirlines() `view` `0d2e677a`
 
 
 
-## *function* callHotel
 
-AbstractWTIndex.callHotel(hotel, data) `nonpayable` `154d56db`
+
+## *function* callAirline
+
+AbstractWTIndex.callAirline(airline, data) `nonpayable` `154d56db`
 
 
 Inputs
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | undefined |
+| *address* | airline | undefined |
 | *bytes* | data | undefined |
 
 
-## *function* hotelsByManagerIndex
+## *function* airlinesByManagerIndex
 
-AbstractWTIndex.hotelsByManagerIndex() `view` `189f6aef`
+AbstractWTIndex.airlinesByManagerIndex() `view` `189f6aef`
 
 
 Inputs
@@ -59,16 +59,16 @@ Inputs
 | *address* |  | undefined |
 
 
-## *function* transferHotel
+## *function* transferAirline
 
-AbstractWTIndex.transferHotel(hotel, newManager) `nonpayable` `292d64e0`
+AbstractWTIndex.transferAirline(airline, newManager) `nonpayable` `292d64e0`
 
 
 Inputs
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | undefined |
+| *address* | airline | undefined |
 | *address* | newManager | undefined |
 
 
@@ -99,9 +99,9 @@ AbstractWTIndex.renounceOwnership() `nonpayable` `715018a6`
 
 
 
-## *function* hotelsByManager
+## *function* airlinesByManager
 
-AbstractWTIndex.hotelsByManager(, ) `view` `7cf2dfae`
+AbstractWTIndex.airlinesByManager(, ) `view` `7cf2dfae`
 
 
 Inputs
@@ -120,9 +120,9 @@ AbstractWTIndex.owner() `view` `8da5cb5b`
 
 
 
-## *function* hotelsIndex
+## *function* airlinesIndex
 
-AbstractWTIndex.hotelsIndex() `view` `9f9bfeb8`
+AbstractWTIndex.airlinesIndex() `view` `9f9bfeb8`
 
 
 Inputs
@@ -132,9 +132,9 @@ Inputs
 | *address* |  | undefined |
 
 
-## *function* getHotelsByManager
+## *function* getAirlinesByManager
 
-AbstractWTIndex.getHotelsByManager(manager) `view` `bb979c3d`
+AbstractWTIndex.getAirlinesByManager(manager) `view` `bb979c3d`
 
 
 Inputs
@@ -144,9 +144,9 @@ Inputs
 | *address* | manager | undefined |
 
 
-## *function* getHotelsLength
+## *function* getAirlinesLength
 
-AbstractWTIndex.getHotelsLength() `view` `ca63a55b`
+AbstractWTIndex.getAirlinesLength() `view` `ca63a55b`
 
 
 
@@ -160,9 +160,9 @@ AbstractWTIndex.contractType() `view` `cb2ef6f7`
 
 
 
-## *function* hotels
+## *function* airlines
 
-AbstractWTIndex.hotels() `view` `cd338265`
+AbstractWTIndex.airlines() `view` `cd338265`
 
 
 Inputs
@@ -185,9 +185,9 @@ Inputs
 | *address* | _newOwner | The address to transfer ownership to. |
 
 
-## *function* registerHotel
+## *function* registerAirline
 
-AbstractWTIndex.registerHotel(dataUri) `nonpayable` `f88a067f`
+AbstractWTIndex.registerAirline(dataUri) `nonpayable` `f88a067f`
 
 
 Inputs
@@ -197,60 +197,60 @@ Inputs
 | *string* | dataUri | undefined |
 
 
-## *function* deleteHotel
+## *function* deleteAirline
 
-AbstractWTIndex.deleteHotel(hotel) `nonpayable` `fb6f6875`
+AbstractWTIndex.deleteAirline(airline) `nonpayable` `fb6f6875`
 
 
 Inputs
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | undefined |
+| *address* | airline | undefined |
 
-## *event* HotelRegistered
+## *event* AirlineRegistered
 
-AbstractWTIndex.HotelRegistered(hotel, managerIndex, allIndex) `48ef5bfc`
+AbstractWTIndex.AirlineRegistered(airline, managerIndex, allIndex) `48ef5bfc`
 
 Arguments
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | not indexed |
+| *address* | airline | not indexed |
 | *uint256* | managerIndex | not indexed |
 | *uint256* | allIndex | not indexed |
 
-## *event* HotelDeleted
+## *event* AirlineDeleted
 
-AbstractWTIndex.HotelDeleted(hotel, managerIndex, allIndex) `54f58abd`
+AbstractWTIndex.AirlineDeleted(airline, managerIndex, allIndex) `54f58abd`
 
 Arguments
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | not indexed |
+| *address* | airline | not indexed |
 | *uint256* | managerIndex | not indexed |
 | *uint256* | allIndex | not indexed |
 
-## *event* HotelCalled
+## *event* AirlineCalled
 
-AbstractWTIndex.HotelCalled(hotel) `e09d7761`
-
-Arguments
-
-| **type** | **name** | **description** |
-|-|-|-|
-| *address* | hotel | not indexed |
-
-## *event* HotelTransferred
-
-AbstractWTIndex.HotelTransferred(hotel, previousManager, newManager) `04dd8111`
+AbstractWTIndex.AirlineCalled(airline) `e09d7761`
 
 Arguments
 
 | **type** | **name** | **description** |
 |-|-|-|
-| *address* | hotel | not indexed |
+| *address* | airline | not indexed |
+
+## *event* AirlineTransferred
+
+AbstractWTIndex.AirlineTransferred(airline, previousManager, newManager) `04dd8111`
+
+Arguments
+
+| **type** | **name** | **description** |
+|-|-|-|
+| *address* | airline | not indexed |
 | *address* | previousManager | not indexed |
 | *address* | newManager | not indexed |
 
