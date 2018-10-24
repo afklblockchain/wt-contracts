@@ -18,7 +18,8 @@ module.exports = {
       gasPrice: 0x01
     },
     mainnet: getInfuraConfig('mainnet', 1),
-    ropsten: getInfuraConfig('ropsten', 3)
+    ropsten: getInfuraConfig('ropsten', 3),
+    ropsten: getInfuraConfig('rinkeby', 2)
   },
   solc: {
     optimizer: {

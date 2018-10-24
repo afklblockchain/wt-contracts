@@ -15,7 +15,8 @@
     "clean": "rimraf build",
     "buildfornpm": "npm run clean && truffle compile",
     "deploy-mainnet": "./node_modules/.bin/truffle migrate --network mainnet --reset",
-    "deploy-ropsten": "./node_modules/.bin/truffle migrate --network ropsten --reset"
+    "deploy-ropsten": "./node_modules/.bin/truffle migrate --network ropsten --reset",
+    "deploy-rinkeby": "./node_modules/.bin/truffle migrate --network rinkeby --reset"
   },
   "publishConfig": {
     "access": "public"
