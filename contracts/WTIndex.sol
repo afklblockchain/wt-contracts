@@ -35,7 +35,7 @@ contract WTIndex is AbstractWTIndex {
     /**
      * @dev Event triggered every time airline is deleted
      */
-    //event AirlineDeleted(address airline, uint managerIndex, uint allIndex);
+    event AirlineDeleted(address airline, uint managerIndex, uint allIndex);
     /**
      * @dev Event triggered every time airline is called
      */
@@ -44,7 +44,7 @@ contract WTIndex is AbstractWTIndex {
     /**
      * @dev Event triggered every time an airline changes a manager.
      */
-    //event AirlineTransferred(address airline, address previousManager, address newManager);
+    event AirlineTransferred(address airline, address previousManager, address newManager);
 
     /**
      * @dev Constructor. Creates the `WTIndex` contract
@@ -72,7 +72,6 @@ contract WTIndex is AbstractWTIndex {
      * on the target Airline contract. Emits `AirlineDeleted` on success.
      * @param  airline  Airline's address
      */
-    /*
     function deleteAirline(address airline) external {
         // Ensure airline address is valid
         require(airline != address(0));
@@ -95,7 +94,6 @@ contract WTIndex is AbstractWTIndex {
         delete airlinesByManagerIndex[airline];
         emit AirlineDeleted(airline, index, allIndex);
     }
-    */
 
     /**
      * @dev `callAirline` Call airline in the index, the airline can only
@@ -125,7 +123,6 @@ contract WTIndex is AbstractWTIndex {
      * @param airline Airline's address
      * @param newManager Address to which the airline will belong after transfer.
      */
-    /*
     function transferAirline(address airline, address newManager) external {
         // Ensure airline address is valid
         require(airline != address(0));
@@ -145,13 +142,12 @@ contract WTIndex is AbstractWTIndex {
 
         // Detach from the old manager ...
         uint index = airlinesByManagerIndex[airline];
-        delete airlinesByManager[msg.sender][airline];
+        delete airlinesByManager[msg.sender][index];
         // ... and attach to new manager
         airlinesByManagerIndex[airline] = airlinesByManager[newManager].length;
         airlinesByManager[newManager].push(airline);
         emit AirlineTransferred(airline, msg.sender, newManager);
     }
-    */
 
     /**
      * @dev `setLifToken` allows the owner of the contract to change the
@@ -166,7 +162,7 @@ contract WTIndex is AbstractWTIndex {
      * @dev `getAirlinesLength` get the length of the `airlines` array
      * @return {" ": "Length of the airlines array. Might contain zero addresses."}
      */
-    function getAIrlinesLength() public view returns (uint) {
+    function getAirlinesLength() public view returns (uint) {
         return airlines.length;
     }
 
