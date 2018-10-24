@@ -4,21 +4,19 @@ import "../AbstractBaseContract.sol";
 
 
 /**
- * @title AbstractHotel
- * @dev Interface of Hotel contract, inherits from
+ * @title AbstractAirline
+ * @dev Interface of Airline contract, inherits from
  * WT's 'AbstractBaseContract'.
  */
-contract AbstractHotel is AbstractBaseContract {
+contract AbstractAirline is AbstractBaseContract {
 
-    // Who owns this Hotel and can manage it.
+    // Who owns this Airline and can manage it.
     address public manager;
 
-    // Arbitrary locator of the off-chain stored hotel data
-    // This might be an HTTPS resource, IPFS hash, Swarm address...
-    // This is intentionally generic.
+    // Base Uri to access the Airline NDC API
     string public dataUri;
 
-    // Number of block when the Hotel was created
+    // Number of blocks when the Airline was created
     uint public created;
 
     // WTIndex address
@@ -34,7 +32,7 @@ contract AbstractHotel is AbstractBaseContract {
     }
 
     /**
-     * @dev `editInfo` Allows owner to change hotel's dataUri.
+     * @dev `editInfo` Allows owner to change airline's dataUri.
      * @param  _dataUri New dataUri pointer of this hotel
      */
     function editInfo(string _dataUri) public onlyFromIndex {
@@ -42,7 +40,7 @@ contract AbstractHotel is AbstractBaseContract {
     }
 
     /**
-     * @dev `destroy` allows the owner to delete the Hotel
+     * @dev `destroy` allows the owner to delete the Airline
      */
     function destroy() public onlyFromIndex {
         _destroyImpl();

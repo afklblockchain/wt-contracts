@@ -1,153 +1,157 @@
 pragma solidity 0.4.24;
 
 import "./AbstractWTIndex.sol";
-import "./hotel/Hotel.sol";
+import "./airline/Airline.sol";
 
 
 /**
- * @title WTIndex, registry of all hotels registered on WT
- * @dev The hotels are stored in an array and can be filtered by the owner
+ * @title WTIndex, registry of all airlines registered on WT
+ * @dev The airlines are stored in an array and can be filtered by the owner
  * address. Inherits from OpenZeppelin's `Ownable` and `AbstractBaseContract`.
  */
 contract WTIndex is AbstractWTIndex {
 
     bytes32 public contractType = bytes32("wtindex");
 
-    // Array of addresses of `Hotel` contracts
-    address[] public hotels;
+    // Array of addresses of `Airline` contracts
+    address[] public airlines;
 
-    // Mapping of hotels position in the general hotel index
-    mapping(address => uint) public hotelsIndex;
+    // Mapping of airlines position in the general airlines index
+    mapping(address => uint) public airlinesIndex;
 
-    // Mapping of the hotels indexed by manager's address
-    mapping(address => address[]) public hotelsByManager;
-    // Mapping of hotels position in the manager's indexed hotel index
-    mapping(address => uint) public hotelsByManagerIndex;
+    // Mapping of the airlines indexed by manager's address
+    mapping(address => address[]) public airlinesByManager;
+    // Mapping of airlines position in the manager's indexed airlines index
+    mapping(address => uint) public airlinesByManagerIndex;
 
     // Address of the LifToken contract
     // solhint-disable-next-line var-name-mixedcase
     address public LifToken;
 
     /**
-     * @dev Event triggered every time hotel is registered
+     * @dev Event triggered every time airline is registered
      */
-    event HotelRegistered(address hotel, uint managerIndex, uint allIndex);
+    event AirlineRegistered(address airline, uint managerIndex, uint allIndex);
     /**
-     * @dev Event triggered every time hotel is deleted
+     * @dev Event triggered every time airline is deleted
      */
-    event HotelDeleted(address hotel, uint managerIndex, uint allIndex);
+    //event AirlineDeleted(address airline, uint managerIndex, uint allIndex);
     /**
-     * @dev Event triggered every time hotel is called
+     * @dev Event triggered every time airline is called
      */
-    event HotelCalled(address hotel);
+    event AirlineCalled(address airline);
 
     /**
-     * @dev Event triggered every time a hotel changes a manager.
+     * @dev Event triggered every time an airline changes a manager.
      */
-    event HotelTransferred(address hotel, address previousManager, address newManager);
+    //event AirlineTransferred(address airline, address previousManager, address newManager);
 
     /**
      * @dev Constructor. Creates the `WTIndex` contract
      */
     constructor() public {
-        hotels.length++;
+        airlines.length++;
     }
 
     /**
-     * @dev `registerHotel` Register new hotel in the index.
-     * Emits `HotelRegistered` on success.
-     * @param  dataUri Hotel's data pointer
+     * @dev `registerAirline` Register new airline in the index.
+     * Emits `AirlineRegistered` on success.
+     * @param  dataUri Airline's data pointer
      */
-    function registerHotel(string dataUri) external {
-        Hotel newHotel = new Hotel(msg.sender, dataUri, this);
-        hotelsIndex[newHotel] = hotels.length;
-        hotels.push(newHotel);
-        hotelsByManagerIndex[newHotel] = hotelsByManager[msg.sender].length;
-        hotelsByManager[msg.sender].push(newHotel);
-        emit HotelRegistered(newHotel, hotelsByManagerIndex[newHotel], hotelsIndex[newHotel]);
+    function registerAirline(string dataUri) external {
+        Airline newAirline = new Airline(msg.sender, dataUri, this);
+        airlinesIndex[newAirline] = airlines.length;
+        airlines.push(newAirline);
+        airlinesByManagerIndex[newAirline] = airlinesByManager[msg.sender].length;
+        airlinesByManager[msg.sender].push(newAirline);
+        emit AirlineRegistered(newAirline, airlinesByManagerIndex[newAirline], airlinesIndex[newAirline]);
     }
 
     /**
-     * @dev `deleteHotel` Allows a manager to delete a hotel, i. e. call destroy
-     * on the target Hotel contract. Emits `HotelDeleted` on success.
-     * @param  hotel  Hotel's address
+     * @dev `deleteAirline` Allows a manager to delete an airline, i. e. call destroy
+     * on the target Airline contract. Emits `AirlineDeleted` on success.
+     * @param  airline  Airline's address
      */
-    function deleteHotel(address hotel) external {
-        // Ensure hotel address is valid
-        require(hotel != address(0));
-        // Ensure we know about the hotel at all
-        require(hotelsIndex[hotel] != uint(0));
-        // Ensure that the caller is the hotel's rightful owner
-        // There may actually be a hotel on index zero, that's why we use a double check
-        require(hotelsByManager[msg.sender][hotelsByManagerIndex[hotel]] != address(0));
+    /*
+    function deleteAirline(address airline) external {
+        // Ensure airline address is valid
+        require(airline != address(0));
+        // Ensure we know about the airline at all
+        require(airlinesIndex[airline] != uint(0));
+        // Ensure that the caller is the airline's rightful owner
+        // There may actually be an airline on index zero, that's why we use a double check
+        require(airlinesByManager[msg.sender][airlinesByManagerIndex[airline]] != address(0));
 
-        Hotel hotelInstance = Hotel(hotel);
-        // Ensure we are calling only our own hotels
-        require(hotelInstance.index() == address(this));
-        hotelInstance.destroy();
+        Airline airlineInstance = Airline(airline);
+        // Ensure we are calling only our own airlines
+        require(airlineInstance.index() == address(this));
+        airlineInstance.destroy();
 
-        uint index = hotelsByManagerIndex[hotel];
-        uint allIndex = hotelsIndex[hotel];
-        delete hotels[allIndex];
-        delete hotelsIndex[hotel];
-        delete hotelsByManager[msg.sender][index];
-        delete hotelsByManagerIndex[hotel];
-        emit HotelDeleted(hotel, index, allIndex);
+        uint index = airlinesByManagerIndex[airline];
+        uint allIndex = airlinesIndex[airline];
+        delete airlines[allIndex];
+        delete airlinesIndex[airline];
+        delete airlinesByManager[msg.sender][index];
+        delete airlinesByManagerIndex[airline];
+        emit AirlineDeleted(airline, index, allIndex);
     }
+    */
 
     /**
-     * @dev `callHotel` Call hotel in the index, the hotel can only
-     * be called by its manager. Effectively proxies a hotel call.
-     * Emits HotelCalled on success.
-     * @param  hotel Hotel's address
-     * @param  data Encoded method call to be done on Hotel contract.
+     * @dev `callAirline` Call airline in the index, the airline can only
+     * be called by its manager. Effectively proxies a airline call.
+     * Emits AirlineCalled on success.
+     * @param  airline Airline's address
+     * @param  data Encoded method call to be done on Airline contract.
      */
-    function callHotel(address hotel, bytes data) external {
-        // Ensure hotel address is valid
-        require(hotel != address(0));
-        // Ensure we know about the hotel at all
-        require(hotelsIndex[hotel] != uint(0));
-        // Ensure that the caller is the hotel's rightful owner
-        require(hotelsByManager[msg.sender][hotelsByManagerIndex[hotel]] != address(0));
-        Hotel hotelInstance = Hotel(hotel);
-        // Ensure we are calling only our own hotels
-        require(hotelInstance.index() == address(this));
+    function callAirline(address airline, bytes data) external {
+        // Ensure airline address is valid
+        require(airline != address(0),"airline address is invalid");
+        // Ensure we know about the airline at all
+        require(airlinesIndex[airline] != uint(0),"the airline is unknown in the index");
+        // Ensure that the caller is the airline's rightful owner
+        require(airlinesByManager[msg.sender][airlinesByManagerIndex[airline]] != address(0), "incorrect caller");
+        Airline airlineInstance = Airline(airline);
+        // Ensure we are calling only our own airlines
+        require(airlineInstance.index() == address(this),"airline returned does not belong to this index");
         // solhint-disable-next-line avoid-low-level-calls
-        require(hotel.call(data));
-        emit HotelCalled(hotel);
+        require(airline.call(data),"invoke failed");
+        emit AirlineCalled(airline);
     }
 
     /**
-     * @dev `transferHotel` Allows to change ownership of
-     * the hotel contract. Emits HotelTransferred on success.
-     * @param hotel Hotel's address
-     * @param newManager Address to which the hotel will belong after transfer.
+     * @dev `transferAirline` Allows to change ownership of
+     * the airline contract. Emits AirlineTransferred on success.
+     * @param airline Airline's address
+     * @param newManager Address to which the airline will belong after transfer.
      */
-    function transferHotel(address hotel, address newManager) external {
-        // Ensure hotel address is valid
-        require(hotel != address(0));
+    /*
+    function transferAirline(address airline, address newManager) external {
+        // Ensure airline address is valid
+        require(airline != address(0));
         // Ensure new manager is valid
         require(newManager != address(0));
-        // Ensure we know about the hotel at all
-        require(hotelsIndex[hotel] != uint(0));
-        // Ensure that the caller is the hotel's rightful owner
-        // There may actually be a hotel on index zero, that's why we use a double check
-        require(hotelsByManager[msg.sender][hotelsByManagerIndex[hotel]] != address(0));
+        // Ensure we know about the airline at all
+        require(airlinesIndex[airline] != uint(0));
+        // Ensure that the caller is the airline's rightful owner
+        // There may actually be a airline on index zero, that's why we use a double check
+        require(airlinesByManager[msg.sender][airlinesByManagerIndex[airline]] != address(0));
 
-        Hotel hotelInstance = Hotel(hotel);
-        // Ensure we are calling only our own hotels
-        require(hotelInstance.index() == address(this));
-        // Change ownership in the Hotel contract
-        hotelInstance.changeManager(newManager);
+        Airline airlineInstance = Airline(airline);
+        // Ensure we are calling only our own airlines
+        require(airlineInstance.index() == address(this));
+        // Change ownership in the Airline contract
+        airlineInstance.changeManager(newManager);
 
         // Detach from the old manager ...
-        uint index = hotelsByManagerIndex[hotel];
-        delete hotelsByManager[msg.sender][index];
+        uint index = airlinesByManagerIndex[airline];
+        delete airlinesByManager[msg.sender][airline];
         // ... and attach to new manager
-        hotelsByManagerIndex[hotel] = hotelsByManager[newManager].length;
-        hotelsByManager[newManager].push(hotel);
-        emit HotelTransferred(hotel, msg.sender, newManager);
+        airlinesByManagerIndex[airline] = airlinesByManager[newManager].length;
+        airlinesByManager[newManager].push(airline);
+        emit AirlineTransferred(airline, msg.sender, newManager);
     }
+    */
 
     /**
      * @dev `setLifToken` allows the owner of the contract to change the
@@ -159,27 +163,27 @@ contract WTIndex is AbstractWTIndex {
     }
 
     /**
-     * @dev `getHotelsLength` get the length of the `hotels` array
-     * @return {" ": "Length of the hotels array. Might contain zero addresses."}
+     * @dev `getAirlinesLength` get the length of the `airlines` array
+     * @return {" ": "Length of the airlines array. Might contain zero addresses."}
      */
-    function getHotelsLength() public view returns (uint) {
-        return hotels.length;
+    function getAIrlinesLength() public view returns (uint) {
+        return airlines.length;
     }
 
     /**
-     * @dev `getHotels` get `hotels` array
-     * @return {" ": "Array of hotel addresses. Might contain zero addresses."}
+     * @dev `getAirlines` get `airlines` array
+     * @return {" ": "Array of airlines addresses. Might contain zero addresses."}
      */
-    function getHotels() public view returns (address[]) {
-        return hotels;
+    function getAirlines() public view returns (address[]) {
+        return airlines;
     }
 
     /**
-     * @dev `getHotelsByManager` get all the hotels belonging to one manager
+     * @dev `getAirlinesByManager` get all the airlines belonging to one manager
      * @param  manager Manager address
-     * @return {" ": "Array of hotels belonging to one manager. Might contain zero addresses."}
+     * @return {" ": "Array of airlines belonging to one manager. Might contain zero addresses."}
      */
-    function getHotelsByManager(address manager) public view returns (address[]) {
-        return hotelsByManager[manager];
+    function getAirlinesByManager(address manager) public view returns (address[]) {
+        return airlinesByManager[manager];
     }
 }
